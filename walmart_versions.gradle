@@ -1,0 +1,33 @@
+ext {
+    walmartVersionCode = 1
+    walmartVersionName = '1.0.0'
+    walmartMinSdkVersion = 16
+    walmartTargetSdkVersion = 30
+    walmartCompileSdkVersion = 30
+    walmartBuildToolsVersion = '30.0.0'
+
+    walmartKTXVersion = '1.3.2'
+
+    walmartAppCompatVersion = '1.2.0'
+    walmartMaterialVersion = '1.3.0'
+    walmartConstraintlayoutVersion = '2.0.4'
+
+    walmartCoroutineCoreVersion = '1.3.8'
+    cwalmartCoroutineAndroidVersion = '1.4.1'
+
+    walmartLifecycleExtensionsVersion = '2.2.0'
+    walmartViewModelVersion = '2.3.0'
+
+    walmartRetrofitVersion = '2.9.0'
+    walmartRetrofitIntercepterVersion = '4.9.0'
+
+    walmartRoomVersion = '2.2.6'
+
+    walmartJUnitVersion = '4.13.2'
+    walmartMockitoVersion = '3.7.7'
+    walmartCoreTestingVersion = '2.1.0'
+    walmartCoroutineTestVersion = '1.3.9'
+    walmartAndroidJUnitVersion = '1.1.2'
+    walmartExpressionVersion = '3.3.0'
+    walmartDebugFragment_version = '1.3.0'
+}

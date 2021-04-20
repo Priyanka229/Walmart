@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'kotlin-allopen'
+}
+apply from: "../walmart_versions.gradle"
+
+allOpen {
+    annotation('com.android.walmart.utilities.OpenForTesting')
+}
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.android.walmart"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    dataBinding { enabled = true}
+}
+
+dependencies {
+
+    /**
+     * kotlin
+     */
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$walmartKTXVersion"
+
+    /** layout */
+    implementation "androidx.appcompat:appcompat:$walmartAppCompatVersion"
+    implementation "com.google.android.material:material:$walmartMaterialVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$walmartConstraintlayoutVersion"
+
+    /**
+     * coroutine
+     */
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$walmartCoroutineCoreVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$cwalmartCoroutineAndroidVersion"
+
+    /**
+     * view model
+     */
+    implementation "androidx.lifecycle:lifecycle-extensions:$walmartLifecycleExtensionsVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$walmartViewModelVersion"
+
+    /**
+     retrofit
+     */
+    api "com.squareup.retrofit2:retrofit:${walmartRetrofitVersion}"
+    api "com.squareup.retrofit2:converter-gson:${walmartRetrofitVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${walmartRetrofitIntercepterVersion}"
+
+    /**
+     *  room db
+     */
+    implementation "androidx.room:room-runtime:$walmartRoomVersion"
+    kapt "androidx.room:room-compiler:$walmartRoomVersion"
+
+    kapt "com.android.databinding:compiler:3.0.1"
+
+    /**
+     * testing
+     */
+    testImplementation "junit:junit:$walmartJUnitVersion"
+    testImplementation "androidx.arch.core:core-testing:$walmartCoreTestingVersion"
+    testImplementation "org.mockito:mockito-core:$walmartMockitoVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$walmartCoroutineTestVersion"
+
+    /** android testing */
+    androidTestImplementation "androidx.test.ext:junit:$walmartAndroidJUnitVersion"
+    androidTestImplementation "androidx.test:runner:$walmartAndroidJUnitVersion"
+    androidTestImplementation "androidx.test:core:$walmartAndroidJUnitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$walmartExpressionVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$walmartExpressionVersion"
+    implementation "androidx.test.espresso:espresso-idling-resource:$walmartExpressionVersion"
+    debugImplementation "androidx.fragment:fragment-testing:$walmartDebugFragment_version"
+}
